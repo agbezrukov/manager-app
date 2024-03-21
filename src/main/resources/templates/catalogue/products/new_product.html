@@ -2,26 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <title>Список товаров &ndash; Сельмаг</title>
+  <title>Новый товар &ndash; Сельмаг</title>
 </head>
 <body>
-<h1>Список товаров</h1>
-<table>
-  <thead>
-  <tr>
-    <th>#</th>
-    <th>Товар</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr data-th-each="product : ${products}">
-    <td data-th-text="${product.id}"></td>
-    <td>
-      <a data-th-href="@{/catalogue/products/{productId}(productId=${product.id})}"
-         data-th-text="${product.title}"></a>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<a data-th-href="@{/catalogue/products/list}">&larr; К списку товаров</a>
+<h1>Новый товар</h1>
+<form method="post" data-th-action="@{/catalogue/products/create}">
+  <label>
+    Название:<br>
+    <input type="text" name="title">
+  </label><br>
+  <label>
+    Описание:<br>
+    <textarea name="details"></textarea>
+  </label><br>
+  <button type="submit">Создать</button>
+</form>
 </body>
 </html>
